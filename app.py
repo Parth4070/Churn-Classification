@@ -28,7 +28,7 @@ credit_score = st.number_input('Credit Score')
 estimated_salary = st.number_input('Estimated Salary')
 tenure = st.slider('Tenure', 0, 10)
 num_of_prods = st.slider('Number of Products', 1, 4)
-has_cr_card = st.selectbox('Hase Credit card', [0,1])
+has_cr_card = st.selectbox('Has Credit card', [0,1])
 is_active_member = st.selectbox('Is Active Member', [0,1])
 
 input_data = pd.DataFrame({
@@ -53,7 +53,7 @@ input_data_scaled = scaler.transform(input_data)
 prediction = model.predict(input_data_scaled)
 prediction_probs = prediction[0][0]
 
-st.write(f"Churn Probablity: {prediction_probs:.2f}")
+st.write(f"Churn Probability: {prediction_probs:.2f}")
 
 if prediction_probs > 0.5:
     st.write("The Customer is likely to churn.")
